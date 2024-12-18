@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "github.iri.refinedbossbars.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "refinedbossbars.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "BossHealthOverlayAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
