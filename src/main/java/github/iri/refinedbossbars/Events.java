@@ -15,6 +15,7 @@ import java.util.*;
 
 public class Events{
     public static final ResourceLocation VANILLA_LOC = new ResourceLocation("textures/gui/bars.png");
+    public boolean customBossBarActive;
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     @OnlyIn(Dist.CLIENT)
@@ -45,6 +46,7 @@ public class Events{
                     }
                 }
 
+                customBossBarActive = true;
                 pGuiGraphics.drawString(mc.font, event.getName(), nameX, nameY, 16777215);
             } else if(flag1){
                 ev.setIncrement(32);
@@ -58,6 +60,7 @@ public class Events{
                     }
                 }
 
+                customBossBarActive = true;
                 pGuiGraphics.drawString(mc.font, event.getName(), nameX, nameY, 16777215);
             } else {
                 ev.setIncrement(18);
@@ -69,7 +72,9 @@ public class Events{
             if(offset >= pGuiGraphics.guiHeight() / 4) break;
         }
 
-        ev.setCanceled(true);
+        if (customBossBarActive) {
+            ev.setCanceled(true);
+        }
     }
 
     @OnlyIn(Dist.CLIENT)
